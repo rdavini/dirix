@@ -1,9 +1,6 @@
 class Order < ApplicationRecord
     belongs_to :organization
-    has_one :address
-    after_create :create_address
-
-    attr_accessor :street, :number, :block, :city, :state, :zip
+    belongs_to :address
 
     def get_status
         if self.end_time and self.start_time
@@ -13,10 +10,5 @@ class Order < ApplicationRecord
         else
             return "não iniciado"
         end
-    end
-
-    private
-    def create_address
-        self.address = Address.new(street: street, number: number, block: block, city: city, state: state, zip: zip)
     end
 end

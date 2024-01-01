@@ -7,8 +7,11 @@ class Api::V1::OrdersController < ApplicationController
     end
 
     def create
-        order = Order.new(order_params)
+        address = Address.find_or_create_by(order_params)
+        order = Order.new
+
         order.organization = @current_user.organization
+        order.address = address
 
         if (order.save)
             render json: order, status: :created
@@ -19,6 +22,6 @@ class Api::V1::OrdersController < ApplicationController
 
     private
     def order_params
-        params.permit(:code, :street, :number, :block, :city, :state, :zip, :organization_id)
+        params.permit(:street, :number, :block, :city, :state, :zip)
     end
 end
