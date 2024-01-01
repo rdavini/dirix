@@ -2,9 +2,7 @@ class Api::V1::UsersController < ApplicationController
   skip_before_action :authenticate, only: [:login, :create]
 
   def index
-    @users = @current_user.employees
-
-    render json: @users
+    render formats: :json
   end
 
   def show
