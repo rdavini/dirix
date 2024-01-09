@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
-    belongs_to :organization
     belongs_to :address
+    belongs_to :ride, optional: true
+    belongs_to :organization
 
     def get_status
         if self.end_time and self.start_time
