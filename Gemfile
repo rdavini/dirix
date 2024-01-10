@@ -15,6 +15,13 @@ gem "puma", "~> 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'google_distance_matrix'
+
+# Gemfile
+gem 'httparty'
+
+gem 'addressable', '~> 2.8', '>= 2.8.6'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

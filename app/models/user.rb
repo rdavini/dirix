@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
     enum role: [ :organization , :driver ]
 
-    attr_accessor :license_plate, :vehicle_brand, :vehicle_color, :organization_id
+    attr_accessor :organization_id
 
     has_one :api_key
 
@@ -35,10 +35,7 @@ class User < ApplicationRecord
         when 'organization'
             self.organization = Organization.new
         when 'driver'
-            self.driver = Driver.new( organization_id: self.organization_id || 1, #remove this 1, only for seedling
-                                      license_plate: self.license_plate,
-                                      vehicle_brand: self.vehicle_brand,
-                                      vehicle_color: self.vehicle_color )
+            self.driver = Driver.new( organization_id: self.organization_id)
         else
             p "undefined role"
         end
