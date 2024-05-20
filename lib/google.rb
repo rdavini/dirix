@@ -28,7 +28,7 @@ module Google
     end
 
     class GeocodingAPI
-        def convert address
+        def self.convert address
             url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&key=#{ENV['GOOGLE_MAPS_KEY']}"
             response = HTTParty.get(Addressable::URI.parse(url).display_uri.to_s)
             

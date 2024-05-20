@@ -1,6 +1,6 @@
 class Api::V1::OrdersController < ApplicationController
     before_action :authenticate
-    include Route
+
     def index
         @orders = Order.all
         render formats: :json
