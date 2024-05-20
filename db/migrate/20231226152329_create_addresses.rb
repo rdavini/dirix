@@ -9,9 +9,7 @@ class CreateAddresses < ActiveRecord::Migration[7.0]
       t.string :complement
       t.string :state, :limit => 2, null: false
       t.numeric :zip, :precision => 8
-      t.decimal :latitude
-      t.decimal :longitude
-
+      t.jsonb :location, null: false
       t.timestamps
     end
     execute "ALTER TABLE addresses ADD CONSTRAINT check_number_ge_zero CHECK (number > 0 )"
