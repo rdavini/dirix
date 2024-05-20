@@ -1,6 +1,7 @@
 class Address < ApplicationRecord
     has_many :orders
     after_validation :address_to_coords
+    store_accessor :location, :lat, :lng
 
     def address
         [street, "#{number} - #{state}", city, country].compact.join(', ')
@@ -12,9 +13,6 @@ class Address < ApplicationRecord
 
     private
     def address_to_coords
-        return if self.latitude != nil
-        coords = Google::GeocodingAPI.new.convert self.address
-        self.latitude = coords["lat"]
-        self.longitude = coords["lng"]
+        self.location ||= Google::GeocodingAPI.convert self.address
     end
 end

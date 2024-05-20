@@ -14,15 +14,22 @@ warehouse = Warehouse.create( name: 'deposito padrao',
                   city: "poços de caldas",
                   state: "MG",
                   zip: 37701287,
-                  latitude: -21.804455,
-                  longitude: -46.573587
+                  location: { lat: -21.8044555, lng: -46.573587 }
                 }),
                 organization: org.organization)
 
 
 # Create a driver associated with the organization
-driver = User.create({
+User.create({
   email: 'driver@gmail.com',
+  password: 'estrelas',
+  phone: '3712-2121',
+  role: User.roles["driver"],
+  organization_id: org.id
+})
+
+User.create({
+  email: 'driver2@gmail.com',
   password: 'estrelas',
   phone: '3712-2121',
   role: User.roles["driver"],
@@ -36,8 +43,7 @@ address = Address.find_or_create_by({
       city: "poços de caldas",
       state: "MG",
       zip: 37701039,
-      latitude: -21.7941761,
-      longitude: -46.5699732
+      location: { lat: -21.7941761, lng: -46.5699732 }
     })
 
 Order.create({
@@ -54,8 +60,7 @@ address2 = Address.find_or_create_by({
   city: "poços de caldas",
   state: "MG",
   zip: 37701704,
-  latitude: -21.7939721,
-  longitude: -46.5674133
+  location: { lat: -21.7939721, lng: -46.5674133 }
 })
 
 Order.create({
