@@ -42,6 +42,9 @@ class Api::V1::UsersController < ApplicationController
     user = User.find_by(email: params[:email])
     if user and user.valid_password?(params[:password])
       user.driver.working_days.find_or_create_by(date: Date.today) if user.role == "driver"
+      p "user token:"
+      p user
+      p user.api_key.token
       render json:{ token: user.api_key.token }
     else
       render json: { errors: "User or Password are invalid!" }, status: :unauthorized

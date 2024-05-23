@@ -5,7 +5,6 @@ class Api::V1::WarehousesController < ApplicationController
 
     def create
         # Warehouse.create()
-        binding.pry
     end
 
     # private
