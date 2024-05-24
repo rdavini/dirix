@@ -50,6 +50,7 @@ gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 gem 'sprockets-rails', '~> 3.0', '>= 3.0.4'
 
 group :development, :test do
+  gem "puma", "~> 5.0"
   gem 'rspec-rails', '~> 4.0.1'
   gem 'pry-byebug'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
