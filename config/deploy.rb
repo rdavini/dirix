@@ -13,6 +13,7 @@ set :deploy_to, "/var/www/dirix"
 set :rbenv_ruby, '3.0.0'
 
 set :rbenv_path, "/home/rdavini/.rbenv"
+set :rbenv_prefix, "/home/rdavini/.rbenv/bin/rbenv exec"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh

@@ -47,6 +47,8 @@ gem "rack-cors"
 gem 'ed25519', '>= 1.2', '< 2.0'
 gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 
+gem 'sprockets-rails', '~> 3.0', '>= 3.0.4'
+
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
   gem 'pry-byebug'
