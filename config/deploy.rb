@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.18.1"
+#lock "~> 3.18.1"
 
 set :application, "dirix"
 set :repo_url, "git@github.com:rdavini/dirix.git"
@@ -9,6 +9,10 @@ set :repo_url, "git@github.com:rdavini/dirix.git"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/dirix"
+
+set :rbenv_ruby, '3.0.0'
+
+set :rbenv_path, "/home/rdavini/.rbenv"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
