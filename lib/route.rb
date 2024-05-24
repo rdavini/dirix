@@ -6,6 +6,7 @@ module Route
   class Tsp
       #refactor function Google module should be called
       def get_shortest_path src, orders
+        Rails.logger.info "Year: #{Time.now.year}"
           matrix = GoogleDistanceMatrix::Matrix.new
 
           src_address = GoogleDistanceMatrix::Place.new address: src
