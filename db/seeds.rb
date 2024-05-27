@@ -13,6 +13,7 @@ warehouse = Warehouse.create( name: 'deposito padrao',
                   block: "Centro",
                   city: "poços de caldas",
                   state: "MG",
+                  country: "Brasil",
                   zip: 37701287,
                   location: { lat: -21.8044555, lng: -46.573587 }
                 }),
@@ -42,6 +43,7 @@ address = Address.find_or_create_by({
       block: "Centro",
       city: "poços de caldas",
       state: "MG",
+      country: "Brasil",
       zip: 37701039,
       location: { lat: -21.7941761, lng: -46.5699732 }
     })
@@ -60,6 +62,7 @@ address2 = Address.find_or_create_by({
   city: "poços de caldas",
   state: "MG",
   zip: 37701704,
+  country: "Brasil",
   location: { lat: -21.7939721, lng: -46.5674133 }
 })
 

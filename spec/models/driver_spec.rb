@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Driver, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "null avg_speed is not valid" do
+    expect{ create(:driver, avg_speed: nil, organization: Organization.new) }.to raise_error(ActiveRecord::NotNullViolation)
+  end
 end
