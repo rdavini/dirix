@@ -2,7 +2,7 @@ class CreateVehicles < ActiveRecord::Migration[7.0]
   def change
     create_table :vehicles do |t|
       t.string :model
-      t.string :branch
+      t.string :brand
       t.string :color
       t.string :license_plate
       t.string :vehicle_doc_photo

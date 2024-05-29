@@ -63,6 +63,8 @@ group :development, :test do
   gem 'capistrano-rails', '~> 1.6', '>= 1.6.3'
   gem 'capistrano-rbenv', '~> 2.2'
   gem 'capistrano-passenger', '~> 0.2.1'
+  gem 'factory_bot_rails'
+  gem 'faker', '~> 3.3', '>= 3.3.1'
 end
 
 group :development do
