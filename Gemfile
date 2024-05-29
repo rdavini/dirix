@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.8"
 gem 'pg', '~> 1.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+#gem "puma", "~> 5.0"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -44,7 +44,13 @@ gem "devise", "~> 4.3"
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem "rack-cors"
 
+gem 'ed25519', '>= 1.2', '< 2.0'
+gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+
+gem 'sprockets-rails', '~> 3.0', '>= 3.0.4'
+
 group :development, :test do
+  gem "puma", "~> 5.0"
   gem 'rspec-rails', '~> 4.0.1'
   gem 'pry-byebug'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,8 +59,12 @@ group :development, :test do
   gem 'get_process_mem'
   gem 'sys-proctable'
   gem 'capistrano', '~> 3.4'
+  gem 'capistrano-bundler'
   gem 'capistrano-rails', '~> 1.6', '>= 1.6.3'
   gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-passenger', '~> 0.2.1'
+  gem 'factory_bot_rails'
+  gem 'faker', '~> 3.3', '>= 3.3.1'
 end
 
 group :development do

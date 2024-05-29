@@ -13,9 +13,8 @@ class Api::V1::UsersController < ApplicationController
     if params[:role] != "organization"
       authenticate
       return if 401 == status
+      params[:organization_id] = @current_user.organization.id
     end
-
-    params[:organization_id] = @current_user.organization.id
 
     @user = User.create(user_params)
 
@@ -57,6 +56,6 @@ class Api::V1::UsersController < ApplicationController
 
   private
     def user_params
-      params.permit(:password, :email, :phone, :city, :role, :license_plate, :vehicle_brand, :vehicle_color, :organization_id)
+      params.permit(:password, :email, :phone, :role, :license_plate, :vehicle_brand, :vehicle_color, :organization_id)
     end
 end

@@ -66,11 +66,32 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    addressable (2.8.6)
+      public_suffix (>= 2.0.2, < 6.0)
+    airbrussh (1.5.2)
+      sshkit (>= 1.6.1, != 1.7.0)
+    base64 (0.2.0)
     bcrypt (3.1.20)
+    bcrypt_pbkdf (1.1.1)
     bootsnap (1.17.0)
       msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
+    capistrano (3.18.1)
+      airbrussh (>= 1.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (2.1.0)
+      capistrano (~> 3.1)
+    capistrano-passenger (0.2.1)
+      capistrano (~> 3.0)
+    capistrano-rails (1.6.3)
+      capistrano (~> 3.1)
+      capistrano-bundler (>= 1.1, < 3)
+    capistrano-rbenv (2.2.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
@@ -82,9 +103,29 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
+    ed25519 (1.3.0)
     erubi (1.12.0)
+    factory_bot (6.4.6)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.3)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
+    faker (3.3.1)
+      i18n (>= 1.8.11, < 2)
+    ffi (1.16.3)
+    get_process_mem (0.2.7)
+      ffi (~> 1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    google_business_api_url_signer (0.1.3)
+      activesupport (>= 3.2.0)
+    google_distance_matrix (0.6.7)
+      activemodel (>= 3.2.13, < 7.2)
+      activesupport (>= 3.2.13, < 7.2)
+      google_business_api_url_signer (~> 0.1.3)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
@@ -103,6 +144,8 @@ GEM
     mini_mime (1.1.5)
     minitest (5.20.0)
     msgpack (1.7.2)
+    multi_xml (0.6.0)
+    mutex_m (0.2.0)
     net-imap (0.4.8)
       date
       net-protocol
@@ -110,8 +153,13 @@ GEM
       net-protocol
     net-protocol (0.2.2)
       timeout
+    net-scp (4.0.0)
+      net-ssh (>= 2.6.5, < 8.0.0)
+    net-sftp (4.0.0)
+      net-ssh (>= 5.0.0, < 8.0.0)
     net-smtp (0.4.0)
       net-protocol
+    net-ssh (7.2.3)
     nio4r (2.7.0)
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
@@ -123,7 +171,8 @@ GEM
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
-    puma (5.6.7)
+    public_suffix (5.0.4)
+    puma (5.6.8)
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (2.2.8)
@@ -180,6 +229,22 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.12.1)
+    ruby_task_manager (0.0.1)
+    sprockets (4.2.1)
+      concurrent-ruby (~> 1.0)
+      rack (>= 2.2.4, < 4)
+    sprockets-rails (3.4.2)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      sprockets (>= 3.0.0)
+    sshkit (1.22.2)
+      base64
+      mutex_m
+      net-scp (>= 1.1.2)
+      net-sftp (>= 2.1.2)
+      net-ssh (>= 2.8.0)
+    sys-proctable (1.3.0)
+      ffi (~> 1.1)
     thor (1.3.0)
     timeout (0.4.1)
     tzinfo (2.0.6)
@@ -195,9 +260,22 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  addressable (~> 2.8, >= 2.8.6)
+  bcrypt_pbkdf (>= 1.0, < 2.0)
   bootsnap
   byebug
+  capistrano (~> 3.4)
+  capistrano-bundler
+  capistrano-passenger (~> 0.2.1)
+  capistrano-rails (~> 1.6, >= 1.6.3)
+  capistrano-rbenv (~> 2.2)
   devise (~> 4.3)
+  ed25519 (>= 1.2, < 2.0)
+  factory_bot_rails
+  faker (~> 3.3, >= 3.3.1)
+  get_process_mem
+  google_distance_matrix
+  httparty
   jbuilder
   pg (~> 1.1)
   pry-byebug
@@ -205,6 +283,9 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.0.8)
   rspec-rails (~> 4.0.1)
+  ruby_task_manager
+  sprockets-rails (~> 3.0, >= 3.0.4)
+  sys-proctable
   tzinfo-data
 
 RUBY VERSION

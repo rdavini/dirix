@@ -27,7 +27,8 @@ class User < ApplicationRecord
     end
     private
     def create_api_key
-        self.api_key = ApiKey.new(ip: 'localhost')
+        #the ip should arrive on the user_creation params and a workaround for testing or development environment
+        self.api_key = ApiKey.new(ip: Faker::Internet.ip_v4_address)
     end
 
     def create_inherited_obj
