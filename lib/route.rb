@@ -37,6 +37,9 @@ module Route
           return get_route(final_path), path[1]
       end
 
+      def solve_vrp
+      end
+
       private
       def shortest_path distance_matrix
         tsp_bruteforce distance_matrix
