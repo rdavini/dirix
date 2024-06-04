@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         get 'users/info', 'user_controller#info'
         post 'users/login', 'user_controller#login'
         get 'orders/get_shortest_path', 'orders_controller#get_shortest_path'
+        get 'orders/djisktra', 'orders_controller#djisktra'
         resources :users
         resources :orders
         resources :warehouses
