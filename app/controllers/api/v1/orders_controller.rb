@@ -25,6 +25,30 @@ class Api::V1::OrdersController < ApplicationController
         render json: Route::Tsp.new.get_shortest_path(@current_user.organization.warehouses.first.address.address, Order.all), status: 200
     end
 
+    def djisktra
+        dim = 2
+        infinity = 999
+        matrix = Array.new(dim) { Array.new(dim) }
+        v = Array.new(dim)
+        pi = Array.new(dim)
+
+        matrix[0][0] = infinity
+        matrix[0][1] = 2
+        matrix[1][0] = 3
+        matrix[1][1] = infinity
+
+        (0..dim-1).each do |i|
+            v[i] = infinity
+            pi[i] = -1
+          (0..dim-1).each do |j|
+            print "#{matrix[i][j]} \t"
+          end
+          print "\n"
+        end
+
+        render json: matrix, status: 200
+    end
+
     private
     def address_params
         params.permit(:street, :number, :block, :city, :state, :zip, :latitude, :longitude, :country)
