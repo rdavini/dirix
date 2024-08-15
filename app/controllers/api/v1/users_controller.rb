@@ -6,6 +6,19 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
+    # the organization user is fetching self data
+    if( @current_user.id == params[:id].to_i)
+      @user = User.find_by(organization: @current_user.id, id: params[:id])
+    else
+      #possibility: . retrieve user and then check if organization_id = params[:id]
+      #             . create a separated controller
+      begin
+        @user = @current_user.organization.drivers.find_by(user_id: params[:id]).user
+      rescue ActiveRecord::RecordNotFound
+        return render json: 'wrong parameters', status: 400
+      end
+    end
+
     render json: @user
   end
 
