@@ -7,6 +7,7 @@ module Google
         # origins:String 
         # destinations:String
         def self.get_distance_matrix origins, destinations
+            return nil if origins.nil? || destinations.nil?
             matrix = GoogleDistanceMatrix::Matrix.new
 
             src_address = GoogleDistanceMatrix::Place.new address: origins
