@@ -22,6 +22,8 @@ gem 'httparty'
 
 gem 'addressable', '~> 2.8', '>= 2.8.6'
 
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -55,7 +57,6 @@ group :development, :test do
   gem 'pry-byebug'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'ruby_task_manager'
   gem 'get_process_mem'
   gem 'sys-proctable'
   gem 'capistrano', '~> 3.4'

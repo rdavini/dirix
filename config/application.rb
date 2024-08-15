@@ -25,5 +25,8 @@ module DirixUserServiceRor
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.autoload_paths << Rails.root.join('lib')
+    config.active_record.encryption.primary_key = "OiqXR88smIh2WP6I29SJ1xy2Ah2v13pg"
+    config.active_record.encryption.deterministic_key = "jsatm4LLQu34QXGj9yPMBM6p5k6m06hX"
+    config.active_record.encryption.key_derivation_salt = "21IgZwsr7WykLiavZCnBBatDSFoi6ezF"
   end
 end
